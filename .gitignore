@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (Critical Security)
+.env
+
+# Playwright BDD Auto-Generated Files
+.features-gen/
+
+# Playwright Test Output and Reports
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# OS and Editor Configs
+.DS_Store
+.vscode/
