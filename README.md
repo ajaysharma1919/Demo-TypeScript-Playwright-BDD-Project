@@ -1,5 +1,9 @@
 # Playwright TypeScript BDD Test Automation Framework
 
+[![Playwright Tests](https://github.com/ajaysharma1919/Demo-TypeScript-Playwright-BDD-Project/actions/workflows/playwright.yml/badge.svg)](https://github.com/ajaysharma1919/Demo-TypeScript-Playwright-BDD-Project/actions)
+
+**👉 [View the Last Execution Report Here](https://ajaysharma1919.github.io/Demo-TypeScript-Playwright-BDD-Project/) 👈**
+
 This repository contains a robust, scalable, and enterprise-grade UI test automation framework built to validate the [Demo Web Shop](https://demowebshop.tricentis.com/) application. 
 
 It transitions traditional Java/Cucumber BDD practices into a modern, lightning-fast Node.js ecosystem using **Playwright**, **TypeScript**, and **playwright-bdd**.
@@ -20,6 +24,7 @@ The framework is designed with modularity, maintainability, and enterprise scala
 * **Playwright-BDD Compiler:** At runtime, the `playwright-bdd` engine automatically compiles the `.feature` files and step definitions into native Playwright `.spec.js` files inside the hidden `.features-gen` folder. This eliminates the sluggishness of traditional Cucumber wrappers and allows tests to run at native Playwright speeds.
 
 ## 📂 Project Structure
+
     ├── .github/workflows/    # CI/CD pipeline configurations
     ├── src/
     │   ├── features/         # BDD Gherkin feature files (.feature)
@@ -78,5 +83,18 @@ This will automatically start a local server and open the `playwright-report/ind
 ### Cloud Reporting (CI/CD)
 The framework is fully integrated with GitHub Actions. On every push to the `main` branch or scheduled nightly run, the tests execute in the cloud.
 * **Pipeline Status:** Navigate to the **Actions** tab in the GitHub repository to view live CI/CD pipeline execution.
-* **Live HTML Report:** Upon completion, the pipeline automatically deploys the Playwright HTML report to GitHub Pages. You can access the live, publicly viewable report via the repository's GitHub Pages URL (configurable under Repository Settings > Pages).
+* **Live HTML Report:** Upon completion, the pipeline automatically deploys the Playwright HTML report to GitHub Pages. **[Access the last execution report here.](https://ajaysharma1919.github.io/Demo-TypeScript-Playwright-BDD-Project/)**
 * **Trace Viewer (Debugging):** For any failed test, a full time-travel trace artifact is securely retained. It captures network logs and a DOM snapshot and can be downloaded directly from the GitHub Actions run summary for deep debugging.
+
+## 🍴 Forking & CI/CD Configuration (GitHub Secrets)
+
+If you fork this repository to run the GitHub Actions pipeline on your own account, you must configure the repository secrets manually, as GitHub strictly prevents secrets from transferring during a fork.
+
+1. Navigate to your forked repository on GitHub.
+2. Click on **Settings** > **Secrets and variables** > **Actions**.
+3. Click the **New repository secret** button.
+4. Add the following two secrets to match your Demo Web Shop test account:
+    * **Name:** `USER_EMAIL` | **Secret:** *your_test_email@example.com*
+    * **Name:** `USER_PASSWORD` | **Secret:** *your_test_password*
+
+Once these are saved, your GitHub Actions pipeline will successfully authenticate and execute without exposing your credentials in the codebase.

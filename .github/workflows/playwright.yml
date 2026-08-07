@@ -21,7 +21,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 24
 
     - name: Install Dependencies
       run: npm install
@@ -49,3 +49,10 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./playwright-report
+
+    - name: Add Report Link to Workflow Summary
+      if: always()
+      run: |
+        echo "### 📊 Playwright Test Report" >> $GITHUB_STEP_SUMMARY
+        echo "The HTML report for this run has been deployed to GitHub Pages." >> $GITHUB_STEP_SUMMARY
+        echo "**👉 [View the Live Report Here](https://ajaysharma1919.github.io/Demo-TypeScript-Playwright-BDD-Project/) 👈**" >> $GITHUB_STEP_SUMMARY
